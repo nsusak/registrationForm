@@ -36,3 +36,8 @@
     transform: rotate(360deg);
   }
 }
+
+.customBG {
+  height: 100vh;
+  background-image: linear-gradient( 135deg, #f98b8b 10%, #FCFF00 100%);
+}
