@@ -135,7 +135,8 @@ const FormValidation = () => {
             {...register("password", {
               required: true,
               maxLength: 20,
-              minLength: 8,
+              minLength: 6,
+              pattern: /^(?=.*\\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
             })}
           />
 
@@ -146,6 +147,10 @@ const FormValidation = () => {
             <p className="text-red-500">
               Your password must be greater than 8 characters
             </p>
+          )}
+
+          {errors?.password?.type === "pattern" && (
+            <p className="text-red-500">Your password isn't strong enough</p>
           )}
 
           <label className="block text-gray-700 text-sm font-bold mt-3 mb-2">
