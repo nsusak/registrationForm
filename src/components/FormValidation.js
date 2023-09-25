@@ -49,11 +49,12 @@ const FormValidation = () => {
       <img
         src={monkey1}
         alt="Monkey"
-        className={`mb-4 absolute top-0 left-0 w-85 h-80 monkey-image ${
+        className={`mb-4 absolute bottom-0 left-0 w-85 h-80 monkey-image ${
           allStepsCompleted && "monkey1"
         }`}
-        style={{ zIndex: 1 }}
+        style={{ zIndex: 1, marginLeft: "150px" }}
       />
+
       <img
         src={monkey2}
         alt="Monkey"
@@ -62,22 +63,25 @@ const FormValidation = () => {
         }`}
         style={{ zIndex: 1 }}
       />
+
       <img
         src={monkey3}
         alt="Monkey"
         className={`mb-4 absolute bottom-0 left-0 w-85 h-80 monkey-image ${
           allStepsCompleted && "monkey3"
         }`}
-        style={{ zIndex: 1 }}
+        style={{ zIndex: 1 }} // Adjust marginLeft as needed
       />
+
       <img
         src={monkey4}
         alt="Monkey"
-        className={`mb-4 absolute bottom-0 right-0 w-85 h-80 monkey-image ${
-          allStepsCompleted && "monkey4"
+        className={`mb-4 absolute top-0 left-0 w-85 h-80 monkey-image ${
+          allStepsCompleted ? "monkey4" : "hidden"
         }`}
         style={{ zIndex: 1 }}
       />
+
       <div className="w-96 m-40 text-left">
         {allStepsCompleted ? (
           <SuccessDisplay

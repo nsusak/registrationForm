@@ -2,7 +2,29 @@
     0%, 100% { transform: translateY(0); }
     25% { transform: translateY(-0px); }
     50% { transform: translateY(0); }
-    75% { transform: translateY(-5px); }
+    75% { transform: translateY(-10px); }
+  }
+  
+
+  @keyframes specialAnimation {
+    0% {
+     opacity: 1;
+      transform: translate(0, 0) rotate(0deg) ;
+    }
+   
+    50% {
+      transform: translate(20vw, 20vh) rotate(360deg);
+    }
+
+    100% {
+      opacity:1;
+      transform: translate(60vw, 60vh) rotate(720deg);
+    }
+   
+  }
+  
+  .monkey4 {
+    animation: specialAnimation 4s ease-in-out infinite;
   }
   
  
@@ -19,7 +41,14 @@
     animation: jump 0.7s infinite alternate;
   }
   
+
   .monkey4 {
-    animation: jump 0.8s infinite alternate;
+    opacity: 0; /* Initially hide */
+    animation: specialAnimation 4s cubic-bezier(0.3, 0, 0.7, 1) forwards;
   }
   
+
+  /* .monkey4 {
+    animation: jump 0.8s infinite alternate;
+  }
+   */

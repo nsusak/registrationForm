@@ -31,7 +31,8 @@ export const languageLabels = {
       emailPattern: "Please write correct email address",
       passwordRequired: "Password is required",
       passwordMinLength: "Your password must be greater than 8 characters",
-      passwordStrength: "Your password isn't strong enough",
+      passwordStrength:
+        "Your password isn't strong enough, it should contain all of these following elements: number, symbol, uppercase letter, lowercase letter and a minimum of 8 characters.",
       confirmPasswordRequired: "Please confirm your password",
       confirmPasswordValidate: "Passwords do not match",
       termsAndConditionsRequired: "Please accept the terms and conditions",
@@ -71,7 +72,8 @@ export const languageLabels = {
         "Por favor, escriba una dirección de correo electrónico válida",
       passwordRequired: "Contraseña es obligatoria",
       passwordMinLength: "Su contraseña debe tener más de 8 caracteres",
-      passwordStrength: "Tu contraseña no es suficientemente segura",
+      passwordStrength:
+        "Su contraseña no es lo suficientemente segura, debe contener todos los siguientes elementos: número, símbolo, letra mayúscula, letra minúscula y un mínimo de 8 caracteres.",
       confirmPasswordRequired: "Por favor, confirme su contraseña",
       confirmPasswordValidate: "Las contraseñas no coinciden",
       termsAndConditionsRequired:
