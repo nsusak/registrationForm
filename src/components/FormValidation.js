@@ -241,7 +241,8 @@ const FormValidation = () => {
               )}
 
               <button
-                type="submit"
+                type="button"
+                onClick={onNextStep}
                 className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-3"
               >
                 Submit
