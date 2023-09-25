@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import LanguagePicker from "./LanguagePicker";
 import SuccessDisplay from "./SuccessDisplay";
 import { languageLabels } from "../translate";
-import monkey1 from "../resources/monkey1.png";
-import monkey2 from "../resources/monkey2.png";
-import monkey3 from "../resources/monkey3.png";
-import monkey4 from "../resources/monkey4.png";
+import monkey1 from "../resources/png2.png";
+import monkey2 from "../resources/png3.png";
+import monkey3 from "../resources/png1.png";
+import monkey4 from "../resources/png4.png";
 import "../css/monkeyAnimations.css";
 
 const FormValidation = () => {
@@ -81,6 +81,8 @@ const FormValidation = () => {
       <div className="w-96 m-40 text-left">
         {allStepsCompleted ? (
           <SuccessDisplay
+            language={language}
+            labels={languageLabels[language]}
             userData={{
               firstName: watch("firstName"),
               lastName: watch("lastName"),

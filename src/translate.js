@@ -4,6 +4,7 @@ export const languageLabels = {
     spanish: "Spanish",
     firstName: "First Name",
     lastName: "Last Name",
+    fullName: "Full Name",
     username: "Username",
     email: "Email",
     password: "Password",
@@ -11,6 +12,11 @@ export const languageLabels = {
     termsAndConditions: "I accept the terms and conditions",
     nextButton: "Next",
     submitButton: "Submit",
+    success: "Congratulations!",
+    successMessage:
+      "You just registered to our super crazy monkey fan page with this data.",
+    applicantInfo: "Applicant information",
+    applicationDetails: " Personal details and application.",
     errorMessages: {
       firstNameRequired: "First name is required",
       firstNamePattern: "Alphabetical characters only",
@@ -36,6 +42,7 @@ export const languageLabels = {
     spanish: "Español",
     firstName: "Nombre",
     lastName: "Apellido",
+    fullName: "Nombre completo",
     username: "Nombre de usuario",
     email: "Correo electrónico",
     password: "Contraseña",
@@ -43,6 +50,11 @@ export const languageLabels = {
     termsAndConditions: "Acepto los términos y condiciones",
     nextButton: "Siguiente",
     submitButton: "Enviar",
+    success: "¡Felicidades! ",
+    successMessage:
+      "Acabas de registrarte en nuestra fan page del mono súper loco con estos datos.",
+    applicantInfo: "Información del aplicante",
+    applicationDetails: "Datos personales y solicitud.",
     errorMessages: {
       firstNameRequired: "Nombre es obligatorio",
       firstNamePattern: "Solo caracteres alfabéticos",
