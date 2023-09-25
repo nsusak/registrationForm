@@ -1,0 +1,25 @@
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    25% { transform: translateY(-0px); }
+    50% { transform: translateY(0); }
+    75% { transform: translateY(-5px); }
+  }
+  
+ 
+  
+  .monkey1 {
+    animation: jump 0.5s infinite alternate;
+  }
+  
+  .monkey2 {
+    animation: jump 0.6s infinite alternate;
+  }
+  
+  .monkey3 {
+    animation: jump 0.7s infinite alternate;
+  }
+  
+  .monkey4 {
+    animation: jump 0.8s infinite alternate;
+  }
+  

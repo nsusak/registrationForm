@@ -2,6 +2,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import LanguagePicker from "./LanguagePicker";
 import { languageLabels } from "../translate";
+import monkey1 from "../resources/monkey1.png";
+import monkey2 from "../resources/monkey2.png";
+import monkey3 from "../resources/monkey3.png";
+import monkey4 from "../resources/monkey4.png";
+import "../css/monkeyAnimations.css";
 
 const FormValidation = () => {
   const {
@@ -12,13 +17,13 @@ const FormValidation = () => {
   } = useForm();
   const [step, setStep] = useState(1);
   const [language, setLanguage] = useState("english");
+  const [allStepsCompleted, setAllStepsCompleted] = useState(false);
 
   const labels = languageLabels[language];
 
   const onNextStep = async () => {
     if (step === 1) {
       await handleSubmit((data) => {
-        console.log(data);
         setStep(step + 1);
       })();
     } else if (step === 2) {
@@ -26,6 +31,9 @@ const FormValidation = () => {
       await handleSubmit((data) => {
         console.log(data);
         setStep(step + 1);
+        if (step === 2 && Object.keys(errors).length === 0) {
+          setAllStepsCompleted(true);
+        }
         alert(JSON.stringify(data));
         console.log(watch(data));
       })();
@@ -37,6 +45,39 @@ const FormValidation = () => {
       <div>
         <LanguagePicker language={language} setLanguage={setLanguage} />
       </div>
+      <img
+        src={monkey1}
+        alt="Monkey"
+        // className={`mb-4 absolute top-0 left-0 w-85 h-80 monkey-image monkey1 ${allStepsCompleted && 'monkey-animation'}`}
+        className={`mb-4 absolute top-0 left-0 w-85 h-80 monkey-image ${
+          allStepsCompleted && "monkey1"
+        }`}
+        style={{ zIndex: 1 }}
+      />
+      <img
+        src={monkey2}
+        alt="Monkey"
+        className={`mb-4 absolute top-0 right-0 w-85 h-80 monkey-image ${
+          allStepsCompleted && "monkey2"
+        }`}
+        style={{ zIndex: 1 }}
+      />
+      <img
+        src={monkey3}
+        alt="Monkey"
+        className={`mb-4 absolute bottom-0 left-0 w-85 h-80 monkey-image ${
+          allStepsCompleted && "monkey3"
+        }`}
+        style={{ zIndex: 1 }}
+      />
+      <img
+        src={monkey4}
+        alt="Monkey"
+        className={`mb-4 absolute bottom-0 right-0 w-85 h-80 monkey-image ${
+          allStepsCompleted && "monkey4"
+        }`}
+        style={{ zIndex: 1 }}
+      />
       <div className="w-96 m-40 text-left">
         <form
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
@@ -138,7 +179,6 @@ const FormValidation = () => {
                   maxLength: 20,
                 })}
               />
-
               {errors?.username?.type === "required" && (
                 <p className="text-red-500">
                   {labels.errorMessages.usernameRequired}
@@ -149,7 +189,6 @@ const FormValidation = () => {
                   {labels.errorMessages.usernameMaxLength}
                 </p>
               )}
-
               <label className="block text-gray-700 text-sm font-bold mt-3 mb-2">
                 {labels.email}
               </label>
@@ -164,7 +203,6 @@ const FormValidation = () => {
                   pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
                 })}
               />
-
               {errors?.email?.type === "required" && (
                 <p className="text-red-500">
                   {labels.errorMessages.emailRequired}
@@ -175,7 +213,6 @@ const FormValidation = () => {
                   {labels.errorMessages.emailPattern}
                 </p>
               )}
-
               <label className="block text-gray-700 text-sm font-bold mt-3 mb-2">
                 {labels.password}
               </label>
@@ -189,10 +226,9 @@ const FormValidation = () => {
                   maxLength: 20,
                   minLength: 6,
                   pattern:
-                    /^(?=.*\\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
+                    /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
                 })}
               />
-
               {errors?.password?.type === "required" && (
                 <p className="text-red-500">
                   {labels.errorMessages.passwordRequired}
@@ -203,13 +239,11 @@ const FormValidation = () => {
                   {labels.errorMessages.passwordMinLength}
                 </p>
               )}
-
-              {/* {errors?.password?.type === "pattern" && (
+              {errors?.password?.type === "pattern" && (
                 <p className="text-red-500">
-                  Your password isn't strong enough
+                  {labels.errorMessages.passwordStrength}
                 </p>
-              )} */}
-
+              )}
               <label className="block text-gray-700 text-sm font-bold mt-3 mb-2">
                 {labels.confirmPassword}
               </label>
@@ -223,7 +257,6 @@ const FormValidation = () => {
                   validate: (value) => value === watch("password"),
                 })}
               />
-
               {errors?.passwordConfirm?.type === "required" && (
                 <p className="text-red-500">
                   {labels.errorMessages.confirmPasswordRequired}
@@ -234,7 +267,6 @@ const FormValidation = () => {
                   {labels.errorMessages.confirmPasswordValidate}
                 </p>
               )}
-
               <label className="block text-gray-700 text-sm font-bold mt-3 mb-2">
                 <input
                   type="checkbox"
@@ -244,13 +276,11 @@ const FormValidation = () => {
                 />
                 {labels.termsAndConditions}
               </label>
-
               {errors?.termsAndConditions?.type === "required" && (
                 <p className="text-red-500">
                   {labels.errorMessages.termsAndConditionsRequired}
                 </p>
               )}
-
               <button
                 type="button"
                 onClick={onNextStep}
