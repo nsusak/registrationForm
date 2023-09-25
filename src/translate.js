@@ -26,7 +26,10 @@ export const languageLabels = {
       lastNamePattern: "Alphabetical characters only",
       lastNameLength: "Name must be greater than 2 characters and less than 25",
       usernameRequired: "Username is required",
+      usernameMinLength: " Username must be at least 4 characters long.",
       usernameMaxLength: "Username should be less than 20 characters",
+      usernamePattern:
+        "Username can only contain letters, numbers, hyphens, and underscores.",
       emailRequired: "Email is required",
       emailPattern: "Please write correct email address",
       passwordRequired: "Password is required",
@@ -65,8 +68,12 @@ export const languageLabels = {
       lastNameLength:
         "El apellido debe tener más de 2 caracteres y menos de 25",
       usernameRequired: "Nombre de usuario es obligatorio",
+      usernameMinLength:
+        "El nombre de usuario debe tener al menos 4 caracteres.",
       usernameMaxLength:
         "El nombre de usuario debe tener menos de 20 caracteres",
+      usernamePattern:
+        "El nombre de usuario solo puede contener letras, números, guiones y guiones bajos.",
       emailRequired: "Correo electrónico es obligatorio",
       emailPattern:
         "Por favor, escriba una dirección de correo electrónico válida",

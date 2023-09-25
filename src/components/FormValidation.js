@@ -193,7 +193,9 @@ const FormValidation = () => {
                   type="text"
                   {...register("username", {
                     required: true,
+                    minLength: 4,
                     maxLength: 20,
+                    pattern: /^[a-z0-9\-_]+$/i,
                   })}
                 />
                 {errors?.username?.type === "required" && (
@@ -201,11 +203,22 @@ const FormValidation = () => {
                     {labels.errorMessages.usernameRequired}
                   </p>
                 )}
+                {errors?.username?.type === "minLength" && (
+                  <p className="text-red-500">
+                    {labels.errorMessages.usernameMinLength}
+                  </p>
+                )}
                 {errors?.username?.type === "maxLength" && (
                   <p className="text-red-500">
                     {labels.errorMessages.usernameMaxLength}
                   </p>
                 )}
+                {errors?.username?.type === "pattern" && (
+                  <p className="text-red-500">
+                    {labels.errorMessages.usernamePattern}
+                  </p>
+                )}
+
                 <label className="block text-gray-700 text-sm font-bold mt-3 mb-2">
                   {labels.email}
                 </label>
@@ -241,7 +254,7 @@ const FormValidation = () => {
                   {...register("password", {
                     required: true,
                     maxLength: 20,
-                    minLength: 6,
+                    minLength: 8,
                     pattern:
                       /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/,
                   })}
