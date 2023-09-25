@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import LanguagePicker from "./LanguagePicker";
+import { languageLabels } from "../translate";
 
 const FormValidation = () => {
   const {
@@ -10,75 +12,6 @@ const FormValidation = () => {
   } = useForm();
   const [step, setStep] = useState(1);
   const [language, setLanguage] = useState("english");
-  const languageLabels = {
-    english: {
-      english: "English",
-      spanish: "Spanish",
-      firstName: "First Name",
-      lastName: "Last Name",
-      username: "Username",
-      email: "Email",
-      password: "Password",
-      confirmPassword: "Confirm Password",
-      termsAndConditions: "I accept the terms and conditions",
-      nextButton: "Next",
-      submitButton: "Submit",
-      errorMessages: {
-        firstNameRequired: "First name is required",
-        firstNamePattern: "Alphabetical characters only",
-        firstNameLength:
-          "Name must be greater than 2 characters and less than 25",
-        lastNameRequired: "Last name is required",
-        lastNamePattern: "Alphabetical characters only",
-        lastNameLength:
-          "Name must be greater than 2 characters and less than 25",
-        usernameRequired: "Username is required",
-        usernameMaxLength: "Username should be less than 20 characters",
-        emailRequired: "Email is required",
-        emailPattern: "Please write correct email address",
-        passwordRequired: "Password is required",
-        passwordMinLength: "Your password must be greater than 8 characters",
-        confirmPasswordRequired: "Please confirm your password",
-        confirmPasswordValidate: "Passwords do not match",
-        termsAndConditionsRequired: "Please accept the terms and conditions",
-      },
-    },
-    spanish: {
-      english: "Inglés",
-      spanish: "Español",
-      firstName: "Nombre",
-      lastName: "Apellido",
-      username: "Nombre de usuario",
-      email: "Correo electrónico",
-      password: "Contraseña",
-      confirmPassword: "Confirmar contraseña",
-      termsAndConditions: "Acepto los términos y condiciones",
-      nextButton: "Siguiente",
-      submitButton: "Enviar",
-      errorMessages: {
-        firstNameRequired: "Nombre es obligatorio",
-        firstNamePattern: "Solo caracteres alfabéticos",
-        firstNameLength:
-          "El nombre debe tener más de 2 caracteres y menos de 25",
-        lastNameRequired: "Apellido es obligatorio",
-        lastNamePattern: "Solo caracteres alfabéticos",
-        lastNameLength:
-          "El apellido debe tener más de 2 caracteres y menos de 25",
-        usernameRequired: "Nombre de usuario es obligatorio",
-        usernameMaxLength:
-          "El nombre de usuario debe tener menos de 20 caracteres",
-        emailRequired: "Correo electrónico es obligatorio",
-        emailPattern:
-          "Por favor, escriba una dirección de correo electrónico válida",
-        passwordRequired: "Contraseña es obligatoria",
-        passwordMinLength: "Su contraseña debe tener más de 8 caracteres",
-        confirmPasswordRequired: "Por favor, confirme su contraseña",
-        confirmPasswordValidate: "Las contraseñas no coinciden",
-        termsAndConditionsRequired:
-          "Por favor, acepte los términos y condiciones",
-      },
-    },
-  };
 
   const labels = languageLabels[language];
 
@@ -102,21 +35,7 @@ const FormValidation = () => {
   return (
     <div>
       <div>
-        <div class="inline-flex mt-2">
-          <button
-            onClick={() => setLanguage("english")}
-            class="bg-white hover:bg-orange-400 text-orange-800 font-bold py-2 px-4 rounded-l border"
-          >
-            {labels.english}
-          </button>
-
-          <button
-            onClick={() => setLanguage("spanish")}
-            class="bg-white hover:bg-orange-400 text-orange-800 font-bold py-2 px-4 rounded-r border"
-          >
-            {labels.spanish}
-          </button>
-        </div>
+        <LanguagePicker language={language} setLanguage={setLanguage} />
       </div>
       <div className="w-96 m-40 text-left">
         <form
